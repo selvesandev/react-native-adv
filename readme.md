@@ -48,7 +48,10 @@ The `animated` module contains many different function object and components tha
 import {Animated} from 'react-native';
 ```
 
-####### The animated Module.
+###### The animated Module.
+
+
+
 XXXX          | XXXX   
 ------------- | -------------
 Values        | `Value` `ValueXY`

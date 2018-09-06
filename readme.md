@@ -49,11 +49,11 @@ import {Animated} from 'react-native';
 ```
 
 ####### The animated Module.
-XXXX  | XXXX    |   
+XXXX          | XXXX   
 ------------- | -------------
-Values  | `Value` `ValueXY`
-Types  | `Spring` `Decay` `Timing`
-Components  | `View` `Text` `Image`
+Values        | `Value` `ValueXY`
+Types         | `Spring` `Decay` `Timing`
+Components    | `View` `Text` `Image`
 
 
 

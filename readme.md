@@ -23,12 +23,17 @@ Other methods.
 1) Easy to Setup
 2) Not much Control.
 3) Some things might get animated that we don't want to be.
-
-
 Used to set very simple animations say change the size of the box or circle, move the element around the screen.
+```
+import {LayoutAnimation, UIManager} from 'react-native';
+  componentWillUpdate() {
+        UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+        LayoutAnimation.spring();
+    }
 
+```
 
-###### 2) Layout Animations
+###### 2) Animated
 1) Far more complex to set up.
 2) Allows for more complicated animations
 3) You probably need this if you want to handle gesture animations.
@@ -39,6 +44,17 @@ animation animation that you think is remotely complicated reach for `animated`.
 
 
 The `animated` module contains many different function object and components that can be used for the animations.
+```
+import {Animated} from 'react-native';
+```
+
+####### The animated Module.
+XXXX  | XXXX    |   
+------------- | -------------
+Values  | `Value` `ValueXY`
+Types  | `Spring` `Decay` `Timing`
+Components  | `View` `Text` `Image`
+
 
 
 *3 Questions for animations*

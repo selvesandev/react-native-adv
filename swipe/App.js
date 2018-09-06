@@ -33,10 +33,26 @@ export default class App extends React.Component {
         );
     }
 
+    renderNoMoreCards() {
+        return <Card title={'All Done'}>
+            <Text style={{marginBottom: 10}}>No more cards available!</Text>
+            <Button title={'Get More'} onPress={() => {
+            }}/>
+        </Card>
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <Deck data={DATA} renderCard={this.renderCard}/>
+                <Deck data={DATA} renderCard={this.renderCard}
+                      onSwipeRight={() => {
+
+                      }}
+                      onSwipeLeft={() => {
+
+                      }}
+                      renderNoMoreCards={this.renderNoMoreCards}
+                />
             </View>
         );
     }

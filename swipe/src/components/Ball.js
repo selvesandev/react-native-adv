@@ -5,7 +5,6 @@ export default class Ball extends Component {
     constructor() {
         super();
         this.position = new Animated.ValueXY(0, 0);
-        console.log(this.position.getLayout());
         Animated.spring(this.position, {
             toValue: {
                 x: 200,
@@ -15,7 +14,6 @@ export default class Ball extends Component {
     }
 
     render() {
-        console.log(this.position.getLayout());
         return (<Animated.View style={this.position.getLayout()}><View
             style={{
                 height: 60,

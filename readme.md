@@ -117,6 +117,154 @@ Which element ?
 ```
 
 
+#### Animated.Value && Animated.timing
+**Eg: changing the opacity** 
+```
+this.animatedValue=new Animated.Value(1);
+
+Animated.timing(this.animatedValue,{
+    toValue:0.3,
+    duration:1000,
+    easing: Easing.bounce // various easing options are available. https://facebook.github.io/react-native/docs/easing
+}).start();
+```
+You can also use this method to change the other properties like color,height etc.
+
+#### Animated.spring
+Spring is a bouncy effect on the animation.
+```
+    Animated.spring(this.animatedValue,{
+        toValue:.5,
+        friction:3,
+        tension:40
+    }).start();
+```
+
+```
+const animatedStyle = {
+            transform: [{
+                scale: this.animatedValue
+            }]
+        };
+        
+        <Animated.View style={[styles.btnStyle, animatedStyle]}>
+                            <Text style={styles.text}>Click me</Text>
+                        </Animated.View>
+```
+
+#### Animated.decay
+Decay the acceleration on the direction. 
+```
+    Animated.decay(this.animatedValue,{
+        decelaration:0.997,
+        velocity:{x:gestureState.vx,y:gestureState.vy}
+    }).start();
+```
+
+#### Animated.sequece
+To Play multiple animation one after this other.
+```
+this.animatedValue1 = new Animated.Value(0);
+this.animatedValue2 = new Animated.Value(1);
+
+ const animatedStyle = {
+            transform: [{
+                translateY: this.animatedValue1
+            }, {
+                scale: this.animatedValue2
+            }]
+        };
+        
+        
+ Animated.sequence([
+             Animated.timing(this.animatedValue1, {
+                 toValue: 150,
+                 duration: 1000
+             }),
+             Animated.spring(this.animatedValue2, {
+                 toValue: 3,
+             }),
+             Animated.timing(this.animatedValue1, {
+                 toValue: 0,
+                 duration: 1000
+             }),
+             Animated.spring(this.animatedValue2, {
+                 toValue: 1
+             })
+         ]).start();
+                
+```
+
+#### Animated.stagger
+All the animation inside the `Animated.stagger` will get animated but `1000` seconds apart one after the other in this example.
+
+```
+this.animatedValue1 = new Animated.Value(0);
+        this.animatedValue2 = new Animated.Value(0);
+        this.animatedValue3 = new Animated.Value(0);
+        
+        
+const animatedStyle1 = {
+     height: this.animatedValue1
+ };
+
+ const animatedStyle2 = {
+     height: this.animatedValue2
+ };
+
+ const animatedStyle3 = {
+     height: this.animatedValue3
+ };
+     
+
+Animated.stagger(1000, [
+    Animated.timing(this.animatedValue1, {
+        toValue: 300,
+        duration: 1500
+    }),
+    
+    Animated.timing(this.animatedValue2, {
+        toValue: 500,
+        duration: 1500
+    }),
+    
+    Animated.timing(this.animatedValue3, {
+        toValue: 800,
+        duration: 1500
+    })
+]).start();
+                
+```
+
+All the animation inside the `Animated.stagger` will get animated but `1000` seconds apart one after the other.
+
+#### Animated.parallel
+Animate all the animation in the same time.
+```
+this.animatedValue1 = new Animated.Value(0);
+this.animatedValue2 = new Animated.Value(1);
+const animatedStyle1 = {
+    transform: [{
+        translateY: this.animatedValue1
+    }, {
+        scale: this.animatedValue2
+    }]
+};
+
+Animated.parallel([
+    Animated.timing(this.animatedValue1, {
+        toValue: 300,
+        duration: 300
+    }),
+
+    Animated.spring(this.animatedValue2, {
+        toValue: 2,
+        duration:1000
+    })
+]).start()
+```
+
+
 #### Handling Gestures.
 * What are we touching?
 * What component handles touch?
@@ -200,3 +348,4 @@ and the `outputRange` `deg` values changes according to the input value .
 
 If the user moves the card `-500deg` on the x axis the card will rotate `-120deg` on the x axis and if `500` on the x axis
 then the card will rotate `120deg`;
+

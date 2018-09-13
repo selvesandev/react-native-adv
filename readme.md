@@ -277,6 +277,7 @@ Whenever we want to work with the gesture in react native we use `PanResponder` 
 ```
 import {PanResponder} from 'react-native';
 ```
+
 ```
 constructor() {
         super();
